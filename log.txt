@@ -2,5 +2,32 @@ git status
 git init    git add *
 git commit -am "stage1"
 git log -p -2
-git commit --amend
-wwww
+git commit --amend  //两次提交合并为一次提交
+git reset --soft HEAD~1 //撤销上次提交，改动保存在stage  git commit
+git reset --soft HEAD~1
+git log 
+
+
+
+
+
+场景1
+git add remote origin sshurl
+git remote show
+git push origin
+
+场景2
+git branch     git checkout master
+git branch B1    git branch B2
+git checkout B2     git branch C4
+git add *    git commit -am "ssss"
+git checkout B1     git add *    git commit -am "ssss"
+git checkout B1     git merge C4    
+git checkout B2     git add *   git commit -am "ssss"
+
+R8：
+git branch --merged 
+git branch --no-merged
+git branch -d xxx (-D强制删除)
+git branch -m <old-branch-name> <new-branch-name>
+
