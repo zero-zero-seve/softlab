@@ -16,6 +16,7 @@ class Graph {
     string chooseOne(string str, int len);
     void dijkstra(int src, int dest, vector<int>& ans);
     int minDistance(int dist[], int sptSet[]);
+    void scan(vector<int>& path, int src);
 
    public:
     // 构造函数
@@ -29,4 +30,5 @@ class Graph {
     string queryBridgeWords(string word1, string word2);
     string generateNewText(string inputText);
     string calcShortestPath(string word1, string word2);
+    string randomWalk();
 };

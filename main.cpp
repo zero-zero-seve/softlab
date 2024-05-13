@@ -17,10 +17,13 @@ void test1() {
     graph.initGraph();
     graph.showStr();
     graph.showGraph();
-    str = graph.queryBridgeWords("exciting", "excg");
-    cout << str << endl;
-    str = graph.generateNewText("Seek to explore new and exciting synergies");
-    cout << str << endl;
-    str = graph.calcShortestPath("out", "seek");
+    // str = graph.queryBridgeWords("exciting", "excg");
+    // cout << str << endl;
+    // str = graph.generateNewText("Seek to explore new and exciting synergies");
+    // cout << str << endl;
+    // str = graph.calcShortestPath("out", "seek");
+    // cout << str << endl;
+    showMap2(map2);
+    str = graph.randomWalk();
     cout << str << endl;
 }

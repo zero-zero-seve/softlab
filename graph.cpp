@@ -122,7 +122,7 @@ string Graph::findMiddleWord(int firstword, int secondword, int choice) {
 }
 string Graph::chooseOne(string str, int len) {
     srand(static_cast<unsigned int>(time(nullptr)));
-    int random_number = (rand() * 1000) % len;
+    int random_number = (rand()) % len;
     // 选择合适的一个桥接词
     std::stringstream STR(str);
     string word;
@@ -237,5 +237,53 @@ void Graph::dijkstra(int src, int dest, vector<int>& ans) {
             i = preNode[i];
         }
         ans.push_back(src);
+    }
+}
+// 随机游走
+string Graph::randomWalk() {
+    vector<int> path;
+    // 随机选择一个节点遍历，如果对应边已经走过，则把i,j设置为true
+    srand(static_cast<unsigned int>(time(nullptr)));
+    int random_number = (rand()) % size;
+    cout << "random_number" << random_number << endl;
+    scan(path, random_number);
+    int _size = path.size();
+    string str = "";
+    for (int i = 0; i < _size; i++) {
+        str = str + map2[path[i]] + " ";
+    }
+    return str;
+}
+
+// 随机游走
+void Graph::scan(vector<int>& path, int src) {
+    bool temp[size][size] = {{0}};
+    string str = "";
+    int count = 0;
+    path.push_back(src);
+    while (true) {
+        str = "";
+        count = 0;
+        // 随机游走
+        for (int i = 0; i < size; i++) {
+            if (graph[src][i] != 0) {
+                str = str + map2[i] + " ";
+                count++;
+            }
+        }
+        if (count != 0) {
+            str = chooseOne(str, count);
+            if (temp[src][map1[str]]) {
+                src = map1[str];
+                path.push_back(src);
+                break;
+            } else {
+                temp[src][map1[str]] = true;
+                src = map1[str];
+                path.push_back(src);
+            }
+        } else {
+            break;
+        }
     }
 }
