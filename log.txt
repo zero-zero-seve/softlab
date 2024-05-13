@@ -1,0 +1,6 @@
+git status
+git init    git add *
+git commit -am "stage1"
+git log -p -2
+git commit --amend
+wwww
